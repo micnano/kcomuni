@@ -22,14 +22,14 @@
                      $classes = ezini( 'MenuContentSettings', 'ExtraIdentifierList', 'menu.ini' )
                      $children = array()
                      $children_count = ''}
-					 {set $children_count=fetch('content', 'reverse_related_objects_count',  hash('object_id', $node.object.id, 'attribute_identifier', 328))}
+					 {set $children_count=fetch('content', 'reverse_related_objects_count',  hash('object_id', $node.object.id, 'attribute_identifier', 'pratica/area'))}
                              {if  $children_count}                                            
                                                                           
                                                                           
                  <div class="row mix-grid">
 					{def $num=0}
 
-			{foreach fetch('content', 'reverse_related_objects',  hash('object_id', $node.object.id, 'attribute_identifier', 328, 'sort_by', array('name',false()))) as $child }
+			{foreach fetch('content', 'reverse_related_objects',  hash('object_id', $node.object.id, 'attribute_identifier', 'pratica/area', 'sort_by', array('name',false()))) as $child }
 								
 								{set $num=$num|inc(1)}
 								
