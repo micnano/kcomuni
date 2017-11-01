@@ -87,8 +87,8 @@ $db->begin();
 $dati= $db->arrayQuery("SELECT * FROM `Atti` GROUP BY `NumAtto1`,`NumAtto2`,`NumAtto1Kine`,`Descrizione` ORDER BY `NumAtto2` ASC");
 
 $db->commit();
-$pID=214531;
-$cID=214524;
+$pID=65;
+$cID=66;
 
 
 
