@@ -51,13 +51,16 @@
 			
 				<ul class="sub-menu">
 				
+                  {def $names = array()}
                   {foreach $facetData as $key2 => $facetCount}
-                 {if and($key2|ne('P.f.'),$key2|ne('P.ed.'),$key2|ne('P.M.'),$key2|ne(''))}
+                 {if and($key2|ne('P.f.'),$key2|ne('P.ed.'),$key2|ne('P.M.'),not($names|contains($key2|trim|downcase)))}
                      <li {if $key2|eq($module_result.view_parameters.tipo)} class="active"{/if}>
-                              <a {if $key2|eq($module_result.view_parameters.tipo)} class="current"{/if} href={concat( $baseURI, '/(tipo)/',$key2)|ezurl}>{$key2|trim('"')|wash} {*({$facetData.countList[$key2]})*}</a>
+                              <a {if $key2|eq($module_result.view_parameters.tipo)} class="current"{/if} href={concat( $baseURI, '/(tipo)/',$key2)|ezurl}>{$key2|trim('"')|wash|upcase} {*({$facetData.countLi$
                       </li>
                    {/if}
+                {set $names = $names|append($key2|trim|downcase)}
                   {/foreach}
+
                   {undef $facetData}
 			
 				</ul>
