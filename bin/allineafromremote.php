@@ -27,8 +27,8 @@ $script = eZScript::instance( array( 'description' => ( "COMUNI- SCRIPT DOCUMENT
 
 $script->startup();
 
-$options = $script->getOptions( "[class:][creator:][storage-dir:][node:]",
-                                "[node1][file]",
+$options = $script->getOptions( "[class:][creator:][storage-dir:][node:][host:][user:][password:][remote-dir:]",
+                                "",
                                 array( 'node' => 'parent node_id to upload object under',
                                        'storage-dir' => 'path to directory which will be added to the path of CSV elements',
                                 	   'host' => 'Remote sftp host',
