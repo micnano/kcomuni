@@ -79,6 +79,7 @@ if ( !$user )
 }
 
 foreach ($nodeList as $FileAtt) {
+	$cli->output( 'Verifico documento : '. $FileAtt->attribute('name'));
     $attributes = $FileAtt->dataMap();
     $attributeimage = $attributes['preview'];
     if (!$attributeimage->hasContent()) {
