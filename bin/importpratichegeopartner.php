@@ -265,38 +265,29 @@ $script->shutdown();
 
 function getComune($code) {
 	switch($code) {
+	case "194":
+		return "Locca";
+	break;
+	
+	case "189":
+		return "Lenzumo";
+	break;
+	
+	case "142":
+		return "Enguiso";
+	break;
+	
 	case "301":
 		return "Ragoli I";
 	break;
 	
-	case "39":
-		return "Bosentino";
+	case "332":
+		return "Santa Margherita";
 	break;
 	
-	case "242":
-		return "Montagne";
+	case "277":
+		return "Pieve di Ledro";
 	break;
-	
-	case "294":
-		return "Preore";
-	break;
-	
-	case "295":
-		return "Presson";
-	break;
-	
-	case "296":
-		return "Prezzo";
-	break;
-	
-	case "302":
-		return "Ragoli II";
-	break;
-	
-	case "359":
-		return "Spera I";
-	break;
-	
 		
 	default:
 	return "";
