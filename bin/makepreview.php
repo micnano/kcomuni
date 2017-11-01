@@ -27,13 +27,9 @@ $script = eZScript::instance( array( 'description' => ( "ADEP - SCRIPT CREAZIONE
 
 $script->startup();
 
-$options = $script->getOptions( "[class:][creator:][storage-dir:][node:]",
-                                "[node1][file]",
-                                array( 'node' => 'parent node_id to upload object under',
-                                       'file' => 'file to read CSV data from',
-                                       'class' => 'class identifier to create objects',
-                                       'creator' => 'user id of imported objects creator',
-                                       'storage-dir' => 'path to directory which will be added to the path of CSV elements' ),
+$options = $script->getOptions( "[node:]",
+                                "",
+                                array( 'node' => 'parent node_id (COMUNE)' ),
                                 false,
                                 array( 'user' => true ));
 
