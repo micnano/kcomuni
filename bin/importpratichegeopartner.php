@@ -84,7 +84,7 @@ eZUser::setCurrentlyLoggedInUser( $user, 14 );
 $db = eZDB::instance();
 $db->begin();
 
-$dati= $db->arrayQuery("SELECT * FROM `Atti` GROUP BY `NumAtto1`,`NumAtto2`,`Descrizione` ORDER BY `NumAtto2` ASC");
+$dati= $db->arrayQuery("SELECT * FROM `Atti` GROUP BY `NumAtto1`,`NumAtto2`,`NumAtto1Kine`,`Descrizione` ORDER BY `NumAtto2` ASC");
 
 $db->commit();
 $pID=214531;
@@ -108,7 +108,8 @@ foreach ($dati as $entry) {
 	$indirizzo = $entry["Localita"];
 	$protocollo = $entry["Protocollo"];
 	$pmm = $entry["PorzMat"];
-	$richarr = $db->arrayQuery("SELECT Cognome, Nome, cfpi FROM `Atti` WHERE NumAtto1 = '".$entry["NumAtto1"]."' AND NumAtto2 = '".$entry["NumAtto2"]."' AND Descrizione = '".addslashes($entry["Descrizione"])."' GROUP BY Cognome,Nome");
+	$richarr = $db->arrayQuery("SELECT Cognome, Nome, cfpi FROM `Atti` WHERE NumAtto1 = '".$entry["NumAtto1"]."' AND NumAtto2 = '".$entry["NumAtto2"]."' AND NumAtto1Kine = '".$entry["NumAtto1Kine"]."' AND Descrizione = '".addslashes($entry["Descrizione"])."' GROUP BY Cognome,Nome");
+	
 	$db->commit();
 	$richiedenti = '';
 	foreach($richarr as $key => $richiedente) {
@@ -117,21 +118,21 @@ foreach ($dati as $entry) {
 		if ((sizeof($richarr)-1)>$key) $richiedenti .= ",";
 	}
 	
-	$richarr = $db->arrayQuery("SELECT DISTINCT(particella) FROM `Atti` WHERE EdFond = 'E' AND NumAtto1 = '".$entry["NumAtto1"]."' AND NumAtto2 = '".$entry["NumAtto2"]."' AND Descrizione = '".addslashes($entry["Descrizione"])."'");
+	$richarr = $db->arrayQuery("SELECT DISTINCT(particella) FROM `Atti` WHERE EdFond = 'E' AND NumAtto1 = '".$entry["NumAtto1"]."' AND NumAtto2 = '".$entry["NumAtto2"]."' AND NumAtto1Kine = '".$entry["NumAtto1Kine"]."' AND Descrizione = '".addslashes($entry["Descrizione"])."'");
 	$ped = '';
 foreach($richarr as $key => $richiedente) {
 		$ped .= $richiedente['particella'];
 		if ((sizeof($richarr)-1)>$key) $ped  .= ",";
 	}
 	$db->commit();
-	$richarr = $db->arrayQuery("SELECT DISTINCT(particella) FROM `Atti` WHERE EdFond = 'F' AND NumAtto1 = '".$entry["NumAtto1"]."' AND NumAtto2 = '".$entry["NumAtto2"]."' AND Descrizione = '".addslashes($entry["Descrizione"])."'");
+	$richarr = $db->arrayQuery("SELECT DISTINCT(particella) FROM `Atti` WHERE EdFond = 'F' AND NumAtto1 = '".$entry["NumAtto1"]."' AND NumAtto2 = '".$entry["NumAtto2"]."' AND NumAtto1Kine = '".$entry["NumAtto1Kine"]."' AND Descrizione = '".addslashes($entry["Descrizione"])."'");
 	$pf = '';
 foreach($richarr as $key => $richiedente) {
 		$pf .= $richiedente['particella'];
 		if ((sizeof($richarr)-1)>$key) $pf  .= ",";
 	}
 	$db->commit();
-	$richarr = $db->arrayQuery("SELECT DISTINCT(particella) FROM `Atti` WHERE EdFond = 'M' AND NumAtto1 = '".$entry["NumAtto1"]."' AND NumAtto2 = '".$entry["NumAtto2"]."' AND Descrizione = '".addslashes($entry["Descrizione"])."'");
+	$richarr = $db->arrayQuery("SELECT DISTINCT(particella) FROM `Atti` WHERE EdFond = 'M' AND NumAtto1 = '".$entry["NumAtto1"]."' AND NumAtto2 = '".$entry["NumAtto2"]."' AND NumAtto1Kine = '".$entry["NumAtto1Kine"]."' AND Descrizione = '".addslashes($entry["Descrizione"])."'");
 	$pm = '';
 foreach($richarr as $key => $richiedente) {
 		$pm .= $richiedente['particella'];
