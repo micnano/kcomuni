@@ -1,4 +1,59 @@
 {ezscript_require( 'tools/ezjsselection.js' )}
+{ezscript_require(array( 'ezjsc::jquery', 'ezjsc::jqueryio') )} 
+
+ <div class="row">
+				<div class="col-md-12">
+
+<!--    
+
+<h3 class="page-title">
+				<i class="fa fa-search fa-1x"></i> Cerca</h3>
+							<div class="row search-form-default">
+									<div class="col-md-12">
+	
+	<script type="text/javascript">
+	{if $browse.permission.contentclass_id|gt(0)}
+	var permitclass="{$browse.permission.contentclass_id}";
+	{else}
+	var permitclass="{foreach $browse.class_array as $classp}{$classp},{/foreach}";
+	{/if}
+	
+	</script>
+						
+											<div class="input-group">
+												<div class="input-cont">
+												
+													<input type="text" placeholder="Cerca..." class="form-control" name="SearchText" id="SearchBrowse" value="">
+												</div>
+												<span class="input-group-btn">
+												<button type="button" id="browsesearch" class="btn red">
+													Cerca &nbsp; <i class="m-icon-swapright m-icon-white"></i>
+													</button>
+												</span>
+											</div>
+										
+									</div>
+								</div>		
+-->
+
+
+    <!-- Main area content: END -->
+
+            <!-- Main area: END -->
+            
+
+
+            <!-- Extra area: START -->
+                            <div class="span3 extra-menu">
+        
+<!-- ZONE CONTENT: START -->
+
+<!-- ZONE CONTENT: END -->
+    </div>
+            		</div>
+</div>
+
+
 <table class="list" cellspacing="0">
 <tr>
     <th class="tight">

@@ -19,3 +19,124 @@ padding:0pxM
 float:right;
 width:70%;
 }
+
+.content-browse .radio input[type="radio"] {
+float:none !important;
+}
+
+.ic-button {
+padding: 0;
+font-size: 11px;
+color:#2a6496;
+background:none;
+border:none;
+}
+
+.block label {
+display:block;
+}
+
+.margin-top-50 {
+margin-top:50px;
+}
+
+.block {
+	padding:10px 0px;
+	border-bottom:1px solid #999999;
+	
+	margin:10px 0px;
+}
+
+.rellink {
+display:block;
+padding:2px 0px;
+padding-left:15px;
+background: url('../img/arrow-down.png') no-repeat center left;
+color:#e02222;
+
+}
+
+.table-toolbar {
+  margin-bottom: 15px;
+}
+
+.list{
+  width: 100% !important;
+}
+
+.table .m-btn {
+  margin-top: 0px;
+  margin-left: 0px; 
+  margin-right: 5px;
+}
+
+.table thead tr th {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.list {
+  margin-bottom: 10px !important;
+}
+
+.list thead { 
+  color: #999; 
+}
+
+.list thead tr th{
+  background-color: #DDD; 
+  font-size: 14px;
+  font-weight: 400; 
+  color: #666;
+}
+
+.list div.success, 
+.list div.info, 
+.list div.important, 
+.list div.warning, 
+.list div.danger {
+  position: absolute;
+  margin-top:-5px;
+  float: left;
+  width: 2px;
+  height: 30px;
+  margin-right: 20px !important;
+}
+
+.list tr td {
+  border-left-width: 0px; 
+}
+.list tr td:first-child {
+  border-left-width: 1px !important; 
+}
+
+.list tr td.highlight:first-child a {
+  margin-left: 15px;
+}
+
+.list td.highlight div.success {  
+  border-left: 2px solid #66ee66;
+}
+
+.list td.highlight div.info {  
+  border-left: 2px solid #87ceeb;
+}
+
+.list td.highlight div.important {  
+  border-left: 2px solid #f02c71;
+}
+
+.list td.highlight div.warning {  
+  border-left: 2px solid #fdbb39;
+}
+
+.list td.highlight div.danger {  
+  border-left: 2px solid #e23e29;
+}
+
+.classattribute-description {
+font-size:10px;
+display:block;
+}
+
+

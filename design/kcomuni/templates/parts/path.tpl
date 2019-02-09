@@ -3,12 +3,8 @@
      use_urlalias=ezini('URLTranslator','Translation')|eq('enabled')}
 
 <ul class="page-breadcrumb breadcrumb">
+
 {if $current_user.is_logged_in}
- {if and( 
-            or( ezini( 'MultiUploadSettings', 'AvailableSubtreeNode', 'ezmultiupload.ini' )|contains( $current_node.node_id ),
-                ezini( 'MultiUploadSettings', 'AvailableClasses', 'ezmultiupload.ini' )|contains( $current_node.class_identifier ) ) ,
-            and( $current_node.object.can_create) 
-         )}
 <li class="btn-group">
 							<button type="button" class="btn blue dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
 							<i class="fa fa-cogs"></i>
@@ -18,10 +14,45 @@
 							<i class="fa fa-angle-down"></i>
 							</button>
 							<ul class="dropdown-menu pull-right" role="menu">
+
+{if $current_node.class_identifier|eq("comune")}							
+							
+{def $folders = fetch('content', 'list', hash('parent_node_id', $current_node.node_id, 'class_filter_type', 'include', 'class_filter_array', array('folder')))}
+
+{foreach $folders as $folder}
+
+
+<li><a href={$folder.url_alias|ezurl}  title=""><i class="fa fa-folder"></i> {$folder.name|wash}</a></li>
+
+
+
+{/foreach}
+
+
+{/if}
+							
+							
+
+{if or($current_node.class_identifier|eq("folder"),$current_node.class_identifier|eq("pratica"))}
+	<li><a href="#" id="downloadFiles"  title="Scarica i documenti selezionati"><i class="fa fa-download"></i> Scarica selezionati</a></li>
+
+{/if}
+
+ {if and( 
+            or( ezini( 'MultiUploadSettings', 'AvailableSubtreeNode', 'ezmultiupload.ini' )|contains( $current_node.node_id ),
+                ezini( 'MultiUploadSettings', 'AvailableClasses', 'ezmultiupload.ini' )|contains( $current_node.class_identifier ) ) ,
+            and( $current_node.object.can_create) 
+         )}
 								
 									 
-   <li> <a href={concat("/ezmultiupload/upload/",$current_node.node_id)|ezurl} title="{'Multiupload'|i18n('extension/ezmultiupload')}">Carica files</a></li>
+   <li> <a href={concat("/ezmultiupload/upload/",$current_node.node_id)|ezurl} title="{'Multiupload'|i18n('extension/ezmultiupload')}"><i class="fa fa-upload"></i> Carica files</a></li>
+{/if}
 
+
+{def $avclasses = $current_node.object.can_create_class_list}
+{foreach $avclasses as $avclass}
+
+{if and($avclass.id|eq(1),or($current_node.class_identifier|eq("pratica"),$current_node.class_identifier|eq("folder")))}
    <li><form method="post" action={"content/action/"|ezurl}>
 <div class="form-container">
 <button type="submit" class="btn">
@@ -39,9 +70,83 @@
 					</form></li>
  
 								
-							</ul>
-						</li>
+						
  {/if}
+ 
+{if and($avclass.id|eq(20),$current_node.class_identifier|eq("comune"))}
+   <li><form method="post" action={"content/action/"|ezurl}>
+<div class="form-container">
+<button type="submit" class="btn">
+							<i class="fa fa-plus"></i>
+							<span>
+								Aggiungi pratica
+							</span>
+							</button>
+						
+						<input type="hidden" name="NewButton" value="NewButton" />
+						<input type="hidden" name="ClassID" value="20" />
+						<input type="hidden" name="ContentLanguageCode" value="{ezini('RegionalSettings', 'Locale')}" />
+						<input type="hidden" name="NodeID" value="{$current_node.node_id}" />
+</div>
+					</form></li>
+ 
+					
+ {/if}
+ 
+ {if and($avclass.id|eq(19),$current_node.class_identifier|eq("folder"),$current_node.depth|eq(3))}
+ 
+   <li><form method="post" action={"content/action/"|ezurl}>
+<div class="form-container">
+<button type="submit" class="btn">
+							<i class="fa fa-plus"></i>
+							<span>
+								Aggiungi particella
+							</span>
+							</button>
+						
+						<input type="hidden" name="NewButton" value="NewButton" />
+						<input type="hidden" name="ClassID" value="19" />
+						<input type="hidden" name="ContentLanguageCode" value="{ezini('RegionalSettings', 'Locale')}" />
+						<input type="hidden" name="NodeID" value="{$current_node.node_id}" />
+</div>
+					</form></li>
+ 
+					
+ {/if}
+ 
+  {if and($avclass.id|eq(18),$current_node.class_identifier|eq("folder"),$current_node.depth|eq(3))}
+ 
+   <li><form method="post" action={"content/action/"|ezurl}>
+<div class="form-container">
+<button type="submit" class="btn">
+							<i class="fa fa-plus"></i>
+							<span>
+								Aggiungi concessionario
+							</span>
+							</button>
+						
+						<input type="hidden" name="NewButton" value="NewButton" />
+						<input type="hidden" name="ClassID" value="18" />
+						<input type="hidden" name="ContentLanguageCode" value="{ezini('RegionalSettings', 'Locale')}" />
+						<input type="hidden" name="NodeID" value="{$current_node.node_id}" />
+</div>
+					</form></li>
+ 
+					
+ {/if}
+ 
+ 
+ 
+ 
+ 
+ 
+ {/foreach}
+
+
+
+
+ 	</ul>
+						</li>
 {/if}
 
 

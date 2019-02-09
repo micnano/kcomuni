@@ -26,6 +26,48 @@
 								<i class="fa fa-sitemap"></i>Pratiche {if $view_parameters.tipo} - {$view_parameters.tipo} ({$children_count}) {/if}
 							</div>
 							<div class="tools">
+							
+							
+{if $node.object.can_remove}
+
+<div class="mix-preview">
+<div class="form">
+<form method="post" name="DeleteNode{$node.object.id}" action={"/content/action"|ezurl} class="form-horizontal">
+
+
+<input type="hidden" name="ContentObjectID" value="{$node.object.id}" />
+<input type="hidden" name="ContentNodeID" value="{$node.node_id}" />
+<input type="hidden" name="MoveToTrash" value="0" />
+<input type="hidden" name="ActionRemove" value="{'Remove'|i18n('design/standard/node/view')}" />
+
+
+
+<button type="submit" class="btn red form-control-inline"><i class="fa fa-trash-o"></i></button>
+
+</form>	</div>
+</div>										
+
+{/if}
+{if $child.object.can_edit}
+<div class="mix-bottom2">
+<div class="form">
+<form method="post" name="EditNode{$node.object.id}" action={"/content/action"|ezurl} class="form-horizontal">
+
+
+<input type="hidden" name="ContentObjectID" value="{$node.object.id}" />
+<input type="hidden" name="ContentNodeID" value="{$node.node_id}" />
+<input type="hidden" name="EditButton" value="{'Edit'|i18n('design/standard/node/view')}" />
+
+
+
+<button type="submit" class="btn red form-control-inline"><i class="fa fa-edit"></i></button>
+
+</form>	</div>
+</div>	
+
+{/if}
+							
+							
 								<a href="javascript:;" class="collapse"></a>
 							</div>
 						</div>

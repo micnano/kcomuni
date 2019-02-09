@@ -314,7 +314,7 @@ General[]
 
 #Classhooks will only be called for objects of the specified class
 Class[]
-#Class[folder]=ezfIndexParentName
+Class[file]=kcomuniEzfindEnhancedIndex
 
 
 [SearchResultClustering]

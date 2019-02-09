@@ -1,13 +1,12 @@
-<div class="col-md-2  mix">
-											<div class="mix-inner" style="min-height:1em;">
-	
-<a href={$node.url_alias|ezurl()}<i class="fa fa-area-chart fa-4x"></i></a>
+
+
+<div class="col-md-2 mix">
+											<div class="mix-inner">
+											{$node.name}
 												
 											</div>
-<div>
-<br/>
-<a href={$node.url_alias|ezurl()}>{$node.name|wash()}</a>
-</div>
+
+
 
 <div class="row">
 
@@ -18,7 +17,7 @@
 <div class="col-md-2 col-sm-3">
 <form method="post" action={"content/action/"|ezurl}>
 <div class="form-container">
-<button type="submit" class="btn ic-button" title="modifica">
+<button type="submit" class="btn ic-button" title="sposta">
 <i class="fa fa-edit fa-lg"></i>							</button>
 						
 						<input type="hidden" name="EditButton" value="EditButton" />
@@ -52,5 +51,5 @@
 <div class="clearfix"></div>
 </div>
 <br/>
-
 </div>
+

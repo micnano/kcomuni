@@ -17,5 +17,18 @@ padding:0pxM
 
 #search_results {
 float:right;
-width:69%;
+width:70%;
 }
+
+.content-browse .radio input[type="radio"] {
+float:none !important;
+}
+
+.ic-button {
+padding: 0;
+font-size: 11px;
+color:#2a6496;
+background:none;
+border:none;
+}
+

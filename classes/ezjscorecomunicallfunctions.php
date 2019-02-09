@@ -10,26 +10,38 @@
  
 class ezjscoreComuniCallFunctions extends ezjscServerFunctions
 {
-    public static function search( $args )
+    public static function SearchBrowse( $args )
     {
         if ( isset( $args[0] ) )
         {
-            return 'Hello World, you sent me 
-                    parameter : ' . $args[0];
+            return false;
         }
         else
         {
             $http = eZHTTPTool::instance();
-            if ( $http->hasPostVariable( 'arg1' ) )
+            if ( $http->hasPostVariable( 'searcht' ) && $http->hasPostVariable( 'permitarray' ))
             {
-                return 'Hello World, you sent 
-                        me post : ' . $http->postVariable( 'arg1' );
+                
+            		$permitclasses = explode(",",$http->postVariable( 'permitarray' ));
+            		$searchtext = addslashes($http->postVariable( 'searcht' ));
+            		
+            		$fetch_parameters = array(
+  'query'     => $searchtext,
+  'class_id'  => $permitclasses,
+  'filter'    => array( 'meta_published_dt:[2013-08-07T18:35:04Z TO *]'),
+  'limit'     => 100,
+  'offset'    => 0,
+  'sort_by'   => array('meta_published_dt' => 'desc')
+);
+$result = eZFunctionHandler::execute('ezfind', 'search', $fetch_parameters);
+            	
+            		
+            		return $result;
+            
             }
         }
  
-        return "Request to server completed, 
-                but you did not send any 
-                post / function parameters!";
+
     }
 }
 ?>

@@ -1,13 +1,13 @@
 <?php /*
 
 [ezjscServer] 
-FunctionList[]=search
+FunctionList[]=kcomuni
 
-[ezjscServer_kcomunimappe]
+[ezjscServer_kcomuni]
 Class=ezjscoreComuniCallFunctions
 # Define File to avoid relying on autoload 
 # system for this simple example
 File=extension/kcomuni/classes/ezjscorecomunicallfunctions.php
-Functions[]=search
+Functions[]=kcomuni
 
 */ ?>

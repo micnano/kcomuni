@@ -4,7 +4,10 @@
    <script src={"assets/plugins/respond.min.js"|ezdesign}></script>
    <script src={"assets/plugins/excanvas.min.js"|ezdesign}></script> 
    <![endif]-->
+   {if $module_result.uri|ne('/pratiche/content/browse')}
 <script src={"assets/plugins/jquery-1.10.2.min.js"|ezdesign} type="text/javascript"></script>
+
+{/if}
 <script src={"assets/plugins/jquery-migrate-1.2.1.min.js"|ezdesign} type="text/javascript"></script>
 
 <script src={"assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js"|ezdesign} type="text/javascript"></script>
@@ -34,6 +37,7 @@ jQuery(document).ready(function() {
 });
 </script>
 {/literal}
+<script src={"assets/scripts/kcomuni.js"|ezdesign} type="text/javascript"></script>
 
 {if $current_node.class_identifier|eq('comune')}
 {literal}

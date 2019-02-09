@@ -74,11 +74,9 @@ foreach ($nodeList as $FileAtt) {
 	$cli->output( 'Verifico documento : '. $FileAtt->attribute('name'));
 
 	            $params = array();
-	            
-	            
 	            $attributeList = array( 'name' => $FileAtt->attribute('name'));
 	            $params['attributes'] = $attributeList;
-	            $result = eZContentFunctions::updateAndPublishObject( $FileAtt->object(), $params );
+	            eZContentFunctions::updateAndPublishObject( $FileAtt->object(), $params );
 	            
 	           
 	    }

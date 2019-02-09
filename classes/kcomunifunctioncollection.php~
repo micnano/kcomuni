@@ -6,7 +6,7 @@ class kcomuniFunctionCollection
 	
 	public static function getStorageDir() {
 		$ini = eZINI::instance("kcomuni.ini");
-		return $ini->variable("StorageSettings","tempdir");
+		return $ini->variable("StorageConfig","");
 	
 	
 	}

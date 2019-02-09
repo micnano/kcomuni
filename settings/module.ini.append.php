@@ -2,6 +2,6 @@
 
 [ModuleSettings]
 ExtensionRepositories[]=kcomuni
-ModuleList[]=kfunctions
+ModuleList[]=comuni
 
 */ ?>

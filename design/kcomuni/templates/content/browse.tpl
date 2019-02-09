@@ -1,6 +1,6 @@
 <div class="content-browse">
 
-{def $number_of_items=10
+{def $number_of_items=100
      $browse_list_count=fetch( content, list_count, hash( parent_node_id, $node_id, depth, 1 ) )
      $node_array=fetch( content, list, hash( parent_node_id, $node_id, depth, 1, offset, $view_parameters.offset, limit, $number_of_items, sort_by, $main_node.sort_array ) )
      $select_name='SelectedObjectIDArray'
@@ -14,6 +14,7 @@
     {set $select_type='radio'}
 {/if}
 
+
 <form name="browse" action={$browse.from_page|ezurl} method="post">
 
 {if $browse.description_template}
@@ -24,8 +25,7 @@
     </div>
 
     <p>{'To select objects, choose the appropriate radiobutton or checkbox(es), and click the "Select" button.'|i18n( 'design/ezdemo/content/browse' )}</p>
-    <p>{'To select an object that is a child of one of the displayed objects, click the parent object name to display a list of its children.'|i18n( 'design/ezdemo/content/browse' )}</p>
-{/if}
+   {/if}
 
 {def $current_node=fetch( content, node, hash( node_id, $browse.start_node ) )}
 {if $browse.start_node|gt( 1 )}
